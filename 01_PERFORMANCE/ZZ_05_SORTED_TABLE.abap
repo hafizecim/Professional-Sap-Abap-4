@@ -1,5 +1,5 @@
 *--------------------------------------------------------------------*
-* Program: ZZ_05_SORTED_TABLE_DETAILED
+* Program: ZZ_05_SORTED_TABLE
 * Amaç   : ABAP'ta Sorted Table kullanımını ve mantığını öğretmek
 * Açıklama:
 * - Sorted Table nedir, ne zaman kullanılır, avantajları nelerdir
@@ -7,7 +7,7 @@
 * - Nested Loop ve Parallel Cursor ile performans optimizasyonu
 *--------------------------------------------------------------------*
 
-REPORT ZZ_05_SORTED_TABLE_DETAILED.
+REPORT ZZ_05_SORTED_TABLE.
 
 *--------------------------------------------------------------------*
 * 🔹 Sorted Table Nedir?
