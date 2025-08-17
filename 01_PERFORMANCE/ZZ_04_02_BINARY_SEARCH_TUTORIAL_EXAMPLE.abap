@@ -140,13 +140,13 @@ REFRESH : LT_INV_KEY, LT_GOODS_KEY.
 LOOP AT GT_DATA.
   CLEAR LT_INV_KEY.
   IF GT_DATA-VGABE EQ '1'.
-    * Mal girişleri için KEY tablosu
+* Mal girişleri için KEY tablosu
     LT_GOODS_KEY-MJAHR = GT_DATA-GJAHR.
     LT_GOODS_KEY-MBLNR = GT_DATA-BELNR.
     LT_GOODS_KEY-ZEILE = GT_DATA-BUZEI.
     COLLECT LT_GOODS_KEY.
   ELSEIF GT_DATA-VGABE EQ '2'.
-    * Faturalar için key tablosu
+* Faturalar için key tablosu
     LT_INV_KEY-GJAHR = GT_DATA-GJAHR.
     LT_INV_KEY-BELNR = GT_DATA-BELNR.
     LT_INV_KEY-BUZEI = GT_DATA-BUZEI.
@@ -259,4 +259,22 @@ WRITE : / 'Toplam okunan Mal Girişi Sayısı :' , GV_LINE_COUNT LEFT-JUSTIFIED.
 
 GV_LINE_COUNT = LINES( GT_DATA ).
 WRITE : / 'Toplam okunan Kayıt Sayısı :' , GV_LINE
-```
+
+
+*--------------------------------------------------------------------*
+* Çıktı Örneği (Program çalıştırıldığında)
+*--------------------------------------------------------------------*
+
+* Toplam çalışma süresi saniye cinsinden gösterilir
+* GV_T3 = (GV_T2 - GV_T1) / 1000000
+WRITE : / 'Toplam Çalışma Süresi (saniye): 0.234'. "Örnek değer, sistem performansına göre değişir
+
+* Toplam okunan fatura sayısı (GT_INVOICE tablosundaki kayıt sayısı)
+WRITE : / 'Toplam okunan Fatura Sayısı : 125'. "Örnek değer, sistemdeki fatura sayısına bağlıdır
+
+* Toplam okunan mal girişi sayısı (GT_GOODSMOV tablosundaki kayıt sayısı)
+WRITE : / 'Toplam okunan Mal Girişi Sayısı : 98'. "Örnek değer, sistemdeki mal girişi kayıt sayısına bağlıdır
+
+* Toplam okunan kayıt sayısı (GT_DATA tablosundaki tüm birleşik kayıtlar)
+WRITE : / 'Toplam okunan Kayıt Sayısı : 223'. "Örnek değer, filtreleme ve veri miktarına bağlıdır
+WRITE : / 'Program başarıyla çalıştı!'. " Programın başarılı bir şekilde tamamlandığını gösterir
